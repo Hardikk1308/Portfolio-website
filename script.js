@@ -24,6 +24,22 @@ document.addEventListener('mousemove', (e) => {
 
 // Mobile Navbar Logic
 const navbar = document.querySelector('nav');
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon.getAttribute('data-lucide') === 'menu') {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        window.lucide.createIcons();
+    });
+}
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
